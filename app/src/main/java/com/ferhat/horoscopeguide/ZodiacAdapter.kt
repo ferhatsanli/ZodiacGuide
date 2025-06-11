@@ -1,6 +1,7 @@
 package com.ferhat.horoscopeguide
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,18 +15,34 @@ class ZodiacAdapter(var transferredContext: Context, res: Int, tvResId: Int, var
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var inflater = LayoutInflater.from(transferredContext)
-        var viewLine = inflater.inflate(R.layout.single_line, parent, false)
 
-        var zodiacImg = viewLine.findViewById<ImageView>(R.id.imgZodiacIcon)
-        var zodiacTvName = viewLine.findViewById<TextView>(R.id.tvZodiacName)
-        var zodiacTvDate = viewLine.findViewById<TextView>(R.id.tvZodiacDescription)
+        var viewLine = convertView
+        var viewHolder: ViewHolder
+        if (viewLine == null){
+            viewLine = inflater.inflate(R.layout.single_line, parent, false)
+            viewHolder = ViewHolder(viewLine)
+            viewLine.tag = viewHolder
+        }
+        else {
+            viewHolder = viewLine.getTag() as ViewHolder
+        }
 
-        zodiacImg.setImageResource(zodiacPics.get(position))
-
-        zodiacTvName.text = zodiacNames.get(position)
-        zodiacTvDate.text = zodiacDates.get(position)
+        viewHolder.zodiacImg.setImageResource(zodiacPics.get(position))
+        viewHolder.zodiacTvName.text = zodiacNames.get(position)
+        viewHolder.zodiacTvDate.text = zodiacDates.get(position)
 
         return viewLine
 //        return super.getView(position, convertView, parent)
+    }
+
+    class ViewHolder(viewOfLine: View){
+        var zodiacImg: ImageView
+        var zodiacTvName: TextView
+        var zodiacTvDate: TextView
+        init {
+            this.zodiacImg = viewOfLine.findViewById<ImageView>(R.id.imgZodiacIcon)
+            this.zodiacTvName = viewOfLine.findViewById<TextView>(R.id.tvZodiacName)
+            this.zodiacTvDate = viewOfLine.findViewById<TextView>(R.id.tvZodiacDescription)
+        }
     }
 }
