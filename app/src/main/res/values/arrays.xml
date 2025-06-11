@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="zodiac_signs">
+    <string-array name="zodiac_sign_names">
         <item>Aries</item>
         <item>Taurus</item>
         <item>Gemini</item>
