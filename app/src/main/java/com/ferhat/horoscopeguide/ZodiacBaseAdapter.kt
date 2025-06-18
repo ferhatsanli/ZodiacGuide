@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import org.w3c.dom.Text
 
 class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
     var allSigns: ArrayList<Sign>
@@ -20,6 +19,7 @@ class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
 
         var signNames = this.context.resources.getStringArray(R.array.zodiac_sign_names)
         var signDates = this.context.resources.getStringArray(R.array.zodiac_birth_dates)
+        var signGroup = this.context.resources.getStringArray(R.array.zodiac_sign_groups)
         var signIcons = arrayOf(
             R.drawable.aries,
             R.drawable.taurus,
@@ -37,42 +37,57 @@ class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
 
         // init arraylist
         for (i in 0..11){
-            var tempSign = Sign(signIcons[i], signNames[i], signDates[i])
+            var tempSign = Sign(signIcons[i], signNames[i], signDates[i], signGroup[i])
             allSigns.add(tempSign)
         }
     }
-    override fun getCount(): Int {
-        return allSigns.size
-    }
+    override fun getCount(): Int = allSigns.size
 
-    override fun getItem(position: Int): Any? {
-        return allSigns[position]
-    }
+    override fun getItem(position: Int): Any? = allSigns[position]
 
-    override fun getItemId(position: Int): Long {
-        return 0
-    }
+    // itemId related with databases which I do not use it at this moment
+    override fun getItemId(position: Int): Long = 0
 
-    override fun getView(
-        position: Int,
-        convertView: View?,
-        parent: ViewGroup?
-    ): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         var theView = convertView
+        var theViewHolder: ViewHolderBase
         if (theView == null){
             var inflater = LayoutInflater.from(this.context)
             theView = inflater.inflate(R.layout.single_line, parent, false)
+            theViewHolder = ViewHolderBase(theView)
+            theView.tag = theViewHolder
             MainActivity.counter++
             Log.i(TAG, "getView: ${MainActivity.counter}")
         }
-        theView.findViewById<ImageView>(R.id.imgZodiacIcon).setImageResource(allSigns[position].zodiacIcon)
-        theView.findViewById<TextView>(R.id.tvZodiacName).setText(allSigns[position].zodiacName)
-        theView.findViewById<TextView>(R.id.tvZodiacDescription).setText(allSigns[position].zodiacDesc)
+        else {
+            theViewHolder = theView.getTag() as ViewHolderBase
+        }
+
+        theViewHolder.imgZodiacSign.setImageResource(allSigns[position].zodiacIcon)
+        theViewHolder.tvZodiacName.setText(allSigns[position].zodiacName)
+        theViewHolder.tvZodiacDesc.setText(allSigns[position].zodiacDesc)
+        theViewHolder.tvZodiacGroup.setText(allSigns[position].zodiacGroup)
         return theView
     }
 }
 
-data class Sign(var zodiacIcon: Int, var zodiacName: String, var zodiacDesc: String){
+data class Sign(
+    var zodiacIcon: Int,
+    var zodiacName: String,
+    var zodiacDesc: String,
+    var zodiacGroup: String
+)
 
+class ViewHolderBase(viewZodiacLine: View) {
+    var imgZodiacSign: ImageView
+    var tvZodiacName: TextView
+    var tvZodiacDesc: TextView
+    var tvZodiacGroup: TextView
+
+    init {
+        this.imgZodiacSign = viewZodiacLine.findViewById<ImageView>(R.id.imgZodiacIcon)
+        this.tvZodiacName = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacName)
+        this.tvZodiacDesc = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacDescription)
+        this.tvZodiacGroup = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacGroup)
+    }
 }
-

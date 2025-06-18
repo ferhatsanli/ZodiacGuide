@@ -29,4 +29,18 @@
         <item>January 20 - February 18</item> <!-- Aquarius -->
         <item>February 19 - March 20</item> <!-- Pisces -->
     </string-array>
+    <string-array name="zodiac_sign_groups">
+        <item>Fire</item>
+        <item>Earth</item>
+        <item>Air</item>
+        <item>Water</item>
+        <item>Fire</item>
+        <item>Earth</item>
+        <item>Air</item>
+        <item>Water</item>
+        <item>Fire</item>
+        <item>Earth</item>
+        <item>Air</item>
+        <item>Water</item>
+    </string-array>
 </resources>
