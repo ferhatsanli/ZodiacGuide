@@ -33,10 +33,10 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/tvZodiacDescription"
+        android:id="@+id/tvZodiacDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="Date"
         android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/imgZodiacIcon"

@@ -9,7 +9,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
+class ZodiacBaseAdapter(context: Context, zodiacData: ArrayList<Sign>) : BaseAdapter() {
     var allSigns: ArrayList<Sign>
     var context: Context
     private val TAG = "FERHAT.${this::class.java.simpleName}"
@@ -17,29 +17,6 @@ class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
         allSigns = ArrayList<Sign>(12)
         this.context = context
 
-        var signNames = this.context.resources.getStringArray(R.array.zodiac_sign_names)
-        var signDates = this.context.resources.getStringArray(R.array.zodiac_birth_dates)
-        var signGroup = this.context.resources.getStringArray(R.array.zodiac_sign_groups)
-        var signIcons = arrayOf(
-            R.drawable.aries,
-            R.drawable.taurus,
-            R.drawable.gemini,
-            R.drawable.cancer,
-            R.drawable.leo,
-            R.drawable.virgo,
-            R.drawable.libra,
-            R.drawable.scorpio,
-            R.drawable.sagittarius,
-            R.drawable.capricorn,
-            R.drawable.aquarius,
-            R.drawable.pisces
-        )
-
-        // init arraylist
-        for (i in 0..11){
-            var tempSign = Sign(signIcons[i], signNames[i], signDates[i], signGroup[i])
-            allSigns.add(tempSign)
-        }
     }
     override fun getCount(): Int = allSigns.size
 
@@ -65,29 +42,22 @@ class ZodiacBaseAdapter(context: Context) : BaseAdapter() {
 
         theViewHolder.imgZodiacSign.setImageResource(allSigns[position].zodiacIcon)
         theViewHolder.tvZodiacName.setText(allSigns[position].zodiacName)
-        theViewHolder.tvZodiacDesc.setText(allSigns[position].zodiacDesc)
+        theViewHolder.tvZodiacDate.setText(allSigns[position].zodiacDate)
         theViewHolder.tvZodiacGroup.setText(allSigns[position].zodiacGroup)
         return theView
     }
 }
 
-data class Sign(
-    var zodiacIcon: Int,
-    var zodiacName: String,
-    var zodiacDesc: String,
-    var zodiacGroup: String
-)
-
 class ViewHolderBase(viewZodiacLine: View) {
     var imgZodiacSign: ImageView
     var tvZodiacName: TextView
-    var tvZodiacDesc: TextView
+    var tvZodiacDate: TextView
     var tvZodiacGroup: TextView
 
     init {
         this.imgZodiacSign = viewZodiacLine.findViewById<ImageView>(R.id.imgZodiacIcon)
         this.tvZodiacName = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacName)
-        this.tvZodiacDesc = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacDescription)
+        this.tvZodiacDate = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacDate)
         this.tvZodiacGroup = viewZodiacLine.findViewById<TextView>(R.id.tvZodiacGroup)
     }
 }

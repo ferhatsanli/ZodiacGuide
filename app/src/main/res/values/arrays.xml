@@ -43,4 +43,102 @@
         <item>Air</item>
         <item>Water</item>
     </string-array>
+    <string-array name="zodiac_characteristics">
+        <item>
+            <![CDATA[
+            <b>Aries (March 21 - April 19)</b><br><br>
+            <b>Element:</b> Fire<br>
+            <b>Modality:</b> Cardinal<br>
+            <b>Traits:</b> Energetic, leadership-oriented, and courageous. Loves adventure, competitive, and makes quick decisions. Can be impatient and impulsive at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Taurus (April 20 - May 20)</b><br><br>
+            <b>Element:</b> Earth<br>
+            <b>Modality:</b> Fixed<br>
+            <b>Traits:</b> Reliable, determined, and patient. Fond of comfort, values art and beauty. Can be resistant to change and stubborn.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Gemini (May 21 - June 20)</b><br><br>
+            <b>Element:</b> Air<br>
+            <b>Modality:</b> Mutable<br>
+            <b>Traits:</b> Intelligent, curious, and communicative. Thinks quickly, adaptable, and social. Can be indecisive and superficial at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Cancer (June 21 - July 22)</b><br><br>
+            <b>Element:</b> Water<br>
+            <b>Modality:</b> Cardinal<br>
+            <b>Traits:</b> Emotional, compassionate, and protective. Devoted to family, intuitive, and has strong empathy. Can be easily offended and withdrawn at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Leo (July 23 - August 22)</b><br><br>
+            <b>Element:</b> Fire<br>
+            <b>Modality:</b> Fixed<br>
+            <b>Traits:</b> Generous, confident, and a natural leader. Loves to be in the spotlight, creative, and cheerful. Can exhibit prideful and selfish behavior.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Virgo (August 23 - September 22)</b><br><br>
+            <b>Element:</b> Earth<br>
+            <b>Modality:</b> Mutable<br>
+            <b>Traits:</b> Meticulous, analytical, and hardworking. Detail-oriented, practical, and organized. Can be critical and overly perfectionistic at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Libra (September 23 - October 22)</b><br><br>
+            <b>Element:</b> Air<br>
+            <b>Modality:</b> Cardinal<br>
+            <b>Traits:</b> Fair, harmonious, and aesthetic. Seeks balance, social, and charming. Can struggle with decision-making and avoids conflict.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Scorpio (October 23 - November 21)</b><br><br>
+            <b>Element:</b> Water<br>
+            <b>Modality:</b> Fixed<br>
+            <b>Traits:</b> Passionate, determined, and intuitive. Mysterious, powerful, and tenacious. Can be jealous and vengeful.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Sagittarius (November 22 - December 21)</b><br><br>
+            <b>Element:</b> Fire<br>
+            <b>Modality:</b> Mutable<br>
+            <b>Traits:</b> Adventurous, optimistic, and free-spirited. Philosophical, cheerful, and outspoken. Can be irresponsible and careless at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Capricorn (December 22 - January 19)</b><br><br>
+            <b>Element:</b> Earth<br>
+            <b>Modality:</b> Cardinal<br>
+            <b>Traits:</b> Disciplined, responsible, and ambitious. Realistic, patient, and hardworking. Can be overly serious and pessimistic.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Aquarius (January 20 - February 18)</b><br><br>
+            <b>Element:</b> Air<br>
+            <b>Modality:</b> Fixed<br>
+            <b>Traits:</b> Innovative, independent, and humanitarian. Rational, original, and intuitive. Can be distant and stubborn at times.
+            ]]>
+        </item>
+        <item>
+            <![CDATA[
+            <b>Pisces (February 19 - March 20)</b><br><br>
+            <b>Element:</b> Water<br>
+            <b>Modality:</b> Mutable<br>
+            <b>Traits:</b> Emotional, compassionate, and dreamy. Artistic, intuitive, and self-sacrificing. Can escape reality and be indecisive.
+            ]]>
+        </item>
+    </string-array>
 </resources>

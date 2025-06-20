@@ -41,7 +41,7 @@ class ZodiacAdapter(var transferredContext: Context, res: Int, tvResId: Int, var
         init {
             this.zodiacImg = viewOfLine.findViewById<ImageView>(R.id.imgZodiacIcon)
             this.zodiacTvName = viewOfLine.findViewById<TextView>(R.id.tvZodiacName)
-            this.zodiacTvDate = viewOfLine.findViewById<TextView>(R.id.tvZodiacDescription)
+            this.zodiacTvDate = viewOfLine.findViewById<TextView>(R.id.tvZodiacDate)
         }
     }
 }

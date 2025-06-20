@@ -9,6 +9,7 @@ import com.ferhat.horoscopeguide.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    lateinit var allSigns: ArrayList<Sign>
     private val TAG = "FERHAT"
     companion object {
         var counter = 0
@@ -23,9 +24,22 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val zodiacNames = resources.getStringArray(R.array.zodiac_sign_names)
-        val zodiacDates = resources.getStringArray(R.array.zodiac_birth_dates)
-        val zodiacSignDrawables = arrayOf(
+
+
+        loadZodiacData()
+
+        var zodiacAdapter = ZodiacBaseAdapter(this, allSigns)
+        binding.listHoroscopes.adapter = zodiacAdapter
+
+    }
+
+    private fun loadZodiacData() {
+        allSigns = ArrayList<Sign>(12)
+
+        var signNames = resources.getStringArray(R.array.zodiac_sign_names)
+        var signDates = resources.getStringArray(R.array.zodiac_birth_dates)
+        var signGroup = resources.getStringArray(R.array.zodiac_sign_groups)
+        var signIcons = arrayOf(
             R.drawable.aries,
             R.drawable.taurus,
             R.drawable.gemini,
@@ -39,18 +53,32 @@ class MainActivity : AppCompatActivity() {
             R.drawable.aquarius,
             R.drawable.pisces
         )
+        var signBanners = arrayOf(
+            R.drawable.banner_aries,
+            R.drawable.banner_taurus,
+            R.drawable.banner_gemini,
+            R.drawable.banner_cancer,
+            R.drawable.banner_leo,
+            R.drawable.banner_virgo,
+            R.drawable.banner_libra,
+            R.drawable.banner_scorpio,
+            R.drawable.banner_sagittarius,
+            R.drawable.banner_capricorn,
+            R.drawable.banner_aquarius,
+            R.drawable.banner_pisces
+        )
+        var signDescription = resources.getStringArray(R.array.zodiac_characteristics)
 
-
-//      var zodiacAdapter = ZodiacAdapter(this, R.layout.single_line, R.id.tvZodiacName, zodiacNames, zodiacDates, zodiacSignDrawables)
-//        binding.listHoroscopes.adapter = zodiacAdapter
-//        binding.listHoroscopes.setOnItemClickListener { parent, view, position, id ->
-////            var tv = view as TextView
-////            Toast.makeText(this@MainActivity, "Clicked on ${tv.text} at $position.position", Toast.LENGTH_LONG).show()
-//
-//        }
-
-        var zodiacAdapter = ZodiacBaseAdapter(this)
-        binding.listHoroscopes.adapter = zodiacAdapter
-
+        for (i in 0..11)
+            allSigns.add(
+                Sign(
+                    signIcons[i],
+                    signNames[i],
+                    signDates[i],
+                    signGroup[i],
+                    signBanners[i],
+                    signDescription[i]
+                )
+            )
     }
 }
