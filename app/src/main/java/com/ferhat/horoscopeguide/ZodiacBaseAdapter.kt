@@ -14,7 +14,7 @@ class ZodiacBaseAdapter(context: Context, zodiacData: ArrayList<Sign>) : BaseAda
     var context: Context
     private val TAG = "FERHAT.${this::class.java.simpleName}"
     init {
-        allSigns = ArrayList<Sign>(12)
+        allSigns = zodiacData
         this.context = context
 
     }

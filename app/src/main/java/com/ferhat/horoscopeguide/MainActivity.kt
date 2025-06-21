@@ -1,6 +1,8 @@
 package com.ferhat.horoscopeguide
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,9 +29,15 @@ class MainActivity : AppCompatActivity() {
 
 
         loadZodiacData()
-
+        Log.i(TAG, "onCreate: 5.madde: ${allSigns[4].zodiacName}")
         var zodiacAdapter = ZodiacBaseAdapter(this, allSigns)
         binding.listHoroscopes.adapter = zodiacAdapter
+        binding.listHoroscopes.setOnItemClickListener { parent, view, position, id ->
+            var intent = Intent(this@MainActivity, DetailActivity::class.java)
+            intent.putExtra("position", position)
+            intent.putExtra("name", allSigns[position].zodiacName)
+            startActivity(intent)
+        }
 
     }
 

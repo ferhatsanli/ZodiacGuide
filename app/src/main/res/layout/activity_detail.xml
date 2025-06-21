@@ -11,10 +11,37 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
+        android:contentDescription="Sign banner"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/banner_aquarius" />
+        app:srcCompat="@drawable/banner_aquarius"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvDetailSignName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Aquarius"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvDetailDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Description"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailSignName"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
