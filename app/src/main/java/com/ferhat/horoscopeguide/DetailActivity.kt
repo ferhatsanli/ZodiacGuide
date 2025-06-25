@@ -1,7 +1,8 @@
 package com.ferhat.horoscopeguide
 
 import android.os.Bundle
-import android.util.Log
+import android.text.Html
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +19,16 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Log.i("FERHAT", "onCreate: DetailActivity")
-        var position = intent.extras?.get("position")
+        var ivBanner = findViewById<ImageView>(R.id.ivDetailBanner)
         var tvSignName = findViewById<TextView>(R.id.tvDetailSignName)
-        tvSignName.text = "The chosen position number is $position"
+        var tvDescription = findViewById<TextView>(R.id.tvDetailDescription)
+
+        var position = intent.extras?.get("position") as Int
+        var allSignData = intent.extras?.get("allSignData") as ArrayList<Sign>
+        var choosenSign = allSignData[position]
+
+        ivBanner.setImageResource(choosenSign.zodiacBanner)
+        tvSignName.text = choosenSign.zodiacName
+        tvDescription.text = Html.fromHtml(choosenSign.zodiacDescription)
     }
 }

@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.listHoroscopes.setOnItemClickListener { parent, view, position, id ->
             var intent = Intent(this@MainActivity, DetailActivity::class.java)
             intent.putExtra("position", position)
-            intent.putExtra("name", allSigns[position].zodiacName)
+            intent.putExtra("allSignData", allSigns)
             startActivity(intent)
         }
 

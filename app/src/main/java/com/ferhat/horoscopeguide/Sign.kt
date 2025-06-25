@@ -1,5 +1,7 @@
 package com.ferhat.horoscopeguide
 
+import java.io.Serializable
+
 data class Sign(
     var zodiacIcon: Int,
     var zodiacName: String,
@@ -7,4 +9,4 @@ data class Sign(
     var zodiacGroup: String,
     var zodiacBanner: Int,
     var zodiacDescription: String
-)
+): Serializable

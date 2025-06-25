@@ -8,7 +8,7 @@
     tools:context=".DetailActivity">
 
     <ImageView
-        android:id="@+id/banner"
+        android:id="@+id/ivDetailBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -30,17 +30,19 @@
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailBanner"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tvDetailDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Description"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDetailSignName"
         tools:ignore="HardcodedText" />
